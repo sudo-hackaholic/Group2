@@ -1,7 +1,5 @@
-let getAccount = (req, res) => {
-    return res.render("page-account", {
-        errors: req.flash("errors")
-    });
-};
-
-export default getAccount;
+const getPageAccount = (req, res) => {
+    res.render("page-account");
+  };
+  export default { getPageAccount };
+  
