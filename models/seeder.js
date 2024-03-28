@@ -204,7 +204,7 @@ async function seed() {
     await prisma.vendor.createMany({ data: data.vendors });
     await prisma.product.createMany({ data: data.products });
     // await prisma.voucher.createMany({ data: data.vouchers });
-    await prisma.order.createMany({ data: data.orders });
+    // await prisma.order.createMany({ data: data.orders });
     return;
   }
 
@@ -220,7 +220,7 @@ async function seed() {
   // const vouchers = await prisma.voucher.findMany();
   const vendors = await prisma.vendor.findMany();
   const products = await prisma.product.findMany();
-  const orders = await prisma.order.findMany();
+  // const orders = await prisma.order.findMany();
 
   // save to one json file
   const data = {
@@ -229,7 +229,7 @@ async function seed() {
     products,
     vendors,
     // vouchers,
-    orders,
+    // orders,
   };
 
   fs.writeFileSync("./models/seed.json", JSON.stringify(data));
