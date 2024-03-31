@@ -1,18 +1,10 @@
-FROM node:20
-
-
-RUN mkdir /usr/app
+FROM node:20-alpine
 
 WORKDIR /usr/app
 
 COPY . .
 
-COPY package.json package-lock.json ./
-
-RUN npm ci --only=production
-
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
+RUN npm install
 
 RUN chmod 755 scripts/entrypoint.sh
 
