@@ -1,4 +1,4 @@
-FROM node:20-alpine
+FROM node:20
 
 
 RUN mkdir /usr/app
@@ -14,8 +14,10 @@ RUN npm ci --only=production
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
 
-RUN chmod +x scripts/entrypoint.sh scripts/wait-for-it.sh
+RUN chmod 755 scripts/entrypoint.sh
+
+RUN chmod 755 scripts/wait-for-it.sh
 
 EXPOSE 3000
 
-CMD [ "sh", "scripts/entrypoint.sh"]
+ENTRYPOINT ["./scripts/entrypoint.sh"]
