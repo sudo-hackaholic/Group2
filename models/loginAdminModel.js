@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 const handleLogin = async (email, password) => {
     try {
         const user = await findUserByUsername(email);
-        if (user) {
+        if (user == 'admin') {
             const isMatch = await bcrypt.compare(password, user.password);
             if (isMatch) {
                 return true;
