@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app/scripts/wait-for-it.sh ": db:5432:5432"
+scripts/wait-for-it.sh ": db:5432:5432"
 
 
 while ! npx prisma migrate dev 2>&1; do
@@ -8,7 +8,7 @@ while ! npx prisma migrate dev 2>&1; do
     sleep 3
 done
 
-while ! node ./app/models/seeder.js 2>&1; do
+while ! node ./models/seeder.js 2>&1; do
     echo "Seed database"
     sleep 3
 done

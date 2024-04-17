@@ -12,4 +12,4 @@ RUN chmod 755 app/scripts/wait-for-it.sh
 
 EXPOSE 3000
 
-ENTRYPOINT ["./app/scripts/entrypoint.sh"]
+ENTRYPOINT ["./scripts/entrypoint.sh"]
