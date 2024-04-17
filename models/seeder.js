@@ -245,8 +245,8 @@ async function seed() {
   await prisma.$executeRaw`TRUNCATE TABLE public."User", public."Category", public."Product", public."SocialProfile", public."Cart", public."Review", public."Vendor", public."AdminRole" RESTART IDENTITY CASCADE`;
   await seedVulnSettings();
   // if seed.json exists, load data from it otherwise seed the database
-  if (fs.existsSync("./app/models/seed.json")) {
-    const data = JSON.parse(fs.readFileSync("./app/models/seed.json"));
+  if (fs.existsSync("./models/seed.json")) {
+    const data = JSON.parse(fs.readFileSync("./models/seed.json"));
     await prisma.user.createMany({ data: data.users });
     await prisma.category.createMany({ data: data.categories });
     await prisma.vendor.createMany({ data: data.vendors });

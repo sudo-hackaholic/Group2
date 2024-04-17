@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "prisma": {
-    "seed": "node ./models/seeder.js",
-    "schema": "./app/prisma/schema.prisma"
+    "seed": "node ./models/seeder.js"
   },
   "main": "app.js",
   "scripts": {
